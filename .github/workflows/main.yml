@@ -32,6 +32,8 @@ jobs:
 
       - name: Test
         run: pnpm test -- --ci --coverage --maxWorkers=2
+        env:
+          SENDINBLUE_APIKEY: ${{ secrets.SENDINBLUE_APIKEY }}
 
       - name: Build
         run: pnpm build
@@ -49,6 +51,8 @@ jobs:
           version: 6.0.2
       - run: pnpm install --no-frozen-lockfile
       - run: pnpm test
+        env:
+          SENDINBLUE_APIKEY: ${{ secrets.SENDINBLUE_APIKEY }}
       - uses: paambaati/codeclimate-action@v3.2.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
