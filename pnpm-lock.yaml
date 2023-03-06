@@ -14,7 +14,7 @@ specifiers:
   jest: ^29.4.3
   np: 7.6.3
   prettier: 2.8.4
-  sendim: ^1.0.2
+  sendim: ^1.1.0
   sib-api-v3-typescript: ^2.2.2
   size-limit: 8.2.4
   ts-jest: ^29.0.5
@@ -23,7 +23,7 @@ specifiers:
   typescript: 4.9.5
 
 dependencies:
-  sendim: 1.0.2
+  sendim: 1.1.0
   sib-api-v3-typescript: 2.2.2
 
 devDependencies:
@@ -8924,8 +8924,8 @@ packages:
       lru-cache: 6.0.0
     dev: true
 
-  /sendim/1.0.2:
-    resolution: {integrity: sha512-o66u9/nAa/UfAx0AM8rNqBI0/XBfMglTDW+umxWsyBc9mLJwlBoFp4TduW6lB0M6bQM+BfvNTGy9wla2Vcdgnw==}
+  /sendim/1.1.0:
+    resolution: {integrity: sha512-Bie9h82+zyrNHjjCSfFvGxgj166gHjXlpSUZ/4Tq/IN2EfHozoR1lVUttm9pqYZ08KsLMp7FTyBfBE/NaJhU1A==}
     engines: {node: '>=10'}
     dependencies:
       pino: 8.10.0

@@ -29,28 +29,33 @@ export class SendimSendinblueProvider implements SendimTransportInterface {
 
   async isHealthy() {
     const account = await this.accountApi.getAccount();
-    return account.response.statusCode === 200;
+    return account?.response?.statusCode === 200;
   }
 
-  async sendRawMail(options: RawMailOptions) {
-    const send = await this.smtpTransactionalApi.sendTransacEmail(options);
+  async sendRawMail({ attachments, ...options }: RawMailOptions) {
+    const send = await this.smtpTransactionalApi.sendTransacEmail({
+      ...options,
+      attachment: attachments,
+    });
 
-    if (!send.body.messageId) {
+    if (send?.body?.messageId) {
       throw new Error(send.response.statusMessage);
     }
   }
 
-  async sendTransactionalMail(options: TransactionalMailOptions) {
+  async sendTransactionalMail({
+    attachments,
+    ...options
+  }: TransactionalMailOptions) {
     const templateId = parseInt(options?.templateId, 10);
 
     const send = await this.smtpTransactionalApi.sendTransacEmail({
       ...options,
       templateId,
+      attachment: attachments,
     });
 
-    // console.log(send);
-
-    if (!send.body.messageId) {
+    if (send?.body?.messageId) {
       throw new Error(send.response.statusMessage);
     }
   }

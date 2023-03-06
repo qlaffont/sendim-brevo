@@ -1,5 +1,27 @@
-import { describe, expect, it } from '@jest/globals';
+import { beforeEach, describe, expect, it, jest } from '@jest/globals';
 import { Sendim } from 'sendim';
+
+const mockSendTransacEmail = jest.fn();
+jest.mock('sib-api-v3-typescript', () => {
+  return {
+    TransactionalEmailsApi: jest.fn().mockImplementation(() => {
+      return {
+        sendTransacEmail: mockSendTransacEmail,
+        setApiKey: jest.fn(),
+      };
+    }),
+    AccountApi: jest.fn().mockImplementation(() => {
+      return {
+        getAccount: jest.fn(() => ({
+          response: {
+            statusCode: process.env.FAILED === 'true' ? 400 : 200,
+          },
+        })),
+        setApiKey: jest.fn(),
+      };
+    }),
+  };
+});
 
 import {
   SendimSendinblueProvider,
@@ -7,6 +29,10 @@ import {
 } from '../src';
 
 describe('Sendim SendInBlue', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('should be Defined', () => {
     expect(Sendim).toBeDefined();
   });
@@ -18,25 +44,23 @@ describe('Sendim SendInBlue', () => {
   it('should be able to add transport', async () => {
     const sendim = new Sendim();
 
-    try {
-      await sendim.addTransport<SendimSendinblueProviderConfig>(
-        SendimSendinblueProvider,
-        { apiKey: '' },
-      );
-      // eslint-disable-next-line no-empty
-    } catch (error) {}
+    process.env.FAILED = 'true';
+    await sendim.addTransport<SendimSendinblueProviderConfig>(
+      SendimSendinblueProvider,
+      { apiKey: '' },
+    );
+    // eslint-disable-next-line no-empty
 
     expect(sendim).toBeDefined();
     expect(sendim.transports).toBeDefined();
     expect(Object.keys(sendim.transports)).toHaveLength(0);
 
-    try {
-      await sendim.addTransport<SendimSendinblueProviderConfig>(
-        SendimSendinblueProvider,
-        { apiKey: process.env.SENDINBLUE_APIKEY! },
-      );
-      // eslint-disable-next-line no-empty
-    } catch (error) {}
+    process.env.FAILED = 'false';
+    await sendim.addTransport<SendimSendinblueProviderConfig>(
+      SendimSendinblueProvider,
+      { apiKey: process.env.SENDINBLUE_APIKEY! },
+    );
+    // eslint-disable-next-line no-empty
 
     expect(sendim).toBeDefined();
     expect(sendim.transports).toBeDefined();
@@ -63,6 +87,21 @@ describe('Sendim SendInBlue', () => {
       sender: {
         email: 'test@test.fr',
       },
+    });
+
+    expect(mockSendTransacEmail).toBeCalledWith({
+      attachment: undefined,
+      htmlContent: '<p>test</p>',
+      sender: {
+        email: 'test@test.fr',
+      },
+      subject: 'test',
+      textContent: 'test',
+      to: [
+        {
+          email: 'test@test.fr',
+        },
+      ],
     });
   });
 
