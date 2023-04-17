@@ -1,7 +1,9 @@
 import { beforeEach, describe, expect, it, jest } from '@jest/globals';
 import { Sendim } from 'sendim';
 
-const mockSendTransacEmail = jest.fn();
+const mockSendTransacEmail = jest.fn().mockImplementation(() => {
+  return { body: { messageId: 'test' } };
+});
 jest.mock('sib-api-v3-typescript', () => {
   return {
     TransactionalEmailsApi: jest.fn().mockImplementation(() => {

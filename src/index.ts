@@ -38,7 +38,7 @@ export class SendimSendinblueProvider implements SendimTransportInterface {
       attachment: attachments,
     });
 
-    if (send?.body?.messageId) {
+    if (!send?.body?.messageId) {
       throw new Error(send.response.statusMessage);
     }
   }
@@ -55,7 +55,7 @@ export class SendimSendinblueProvider implements SendimTransportInterface {
       attachment: attachments,
     });
 
-    if (send?.body?.messageId) {
+    if (!send?.body?.messageId) {
       throw new Error(send.response.statusMessage);
     }
   }
