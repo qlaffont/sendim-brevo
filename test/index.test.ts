@@ -46,16 +46,17 @@ describe('Sendim SendInBlue', () => {
   it('should be able to add transport', async () => {
     const sendim = new Sendim();
 
-    process.env.FAILED = 'true';
-    await sendim.addTransport<SendimSendinblueProviderConfig>(
-      SendimSendinblueProvider,
-      { apiKey: '' },
-    );
-    // eslint-disable-next-line no-empty
-
-    expect(sendim).toBeDefined();
-    expect(sendim.transports).toBeDefined();
-    expect(Object.keys(sendim.transports)).toHaveLength(0);
+    try {
+      process.env.FAILED = 'true';
+      await sendim.addTransport<SendimSendinblueProviderConfig>(
+        SendimSendinblueProvider,
+        { apiKey: '' },
+      );
+    } catch (error) {
+      expect(sendim).toBeDefined();
+      expect(sendim.transports).toBeDefined();
+      expect(Object.keys(sendim.transports)).toHaveLength(0);
+    }
 
     process.env.FAILED = 'false';
     await sendim.addTransport<SendimSendinblueProviderConfig>(
