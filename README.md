@@ -1,20 +1,20 @@
-[![Test Coverage](https://api.codeclimate.com/v1/badges/1cba2b8c3c1a4b96782c/test_coverage)](https://codeclimate.com/github/flexper/sendim-sendinblue/test_coverage) [![Maintainability](https://api.codeclimate.com/v1/badges/1cba2b8c3c1a4b96782c/maintainability)](https://codeclimate.com/github/flexper/sendim-sendinblue/maintainability) ![npm](https://img.shields.io/npm/v/sendim-sendinblue) ![npm](https://img.shields.io/npm/dm/sendim-sendinblue) ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/sendim-sendinblue) ![NPM](https://img.shields.io/npm/l/sendim-sendinblue)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/1cba2b8c3c1a4b96782c/test_coverage)](https://codeclimate.com/github/flexper/sendim-brevo/test_coverage) [![Maintainability](https://api.codeclimate.com/v1/badges/1cba2b8c3c1a4b96782c/maintainability)](https://codeclimate.com/github/flexper/sendim-brevo/maintainability) ![npm](https://img.shields.io/npm/v/sendim-brevo) ![npm](https://img.shields.io/npm/dm/sendim-brevo) ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/sendim-brevo) ![NPM](https://img.shields.io/npm/l/sendim-brevo)
 
-# sendim-sendinblue
+# sendim-brevo
 
-A simple library to send email with Sendim for Sendinblue.
+A simple library to send email with Sendim for Brevo.
 
 ## Usage
 
 ```typescript
 import { Sendim } from 'sendim';
-import { SendimSendinblueProviderConfig, SendimSendinblueProvider } from 'sendim-sendinblue';
+import { SendimBrevoProviderConfig, SendimBrevoProvider } from 'sendim-brevo';
 
 const sendim = new Sendim();
 
-await sendim.addTransport<SendimSendinblueProviderConfig>(
-  SendimSendinblueProvider,
-  { apiKey: process.env.SENDINBLUE_APIKEY! },
+await sendim.addTransport<SendimBrevoProviderConfig>(
+  SendimBrevoProvider,
+  { apiKey: process.env.BREVO_APIKEY! },
 );
 
 await sendim.sendTransactionalMail({

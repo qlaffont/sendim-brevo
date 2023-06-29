@@ -3,22 +3,22 @@ import {
   SendimTransportInterface,
   TransactionalMailOptions,
 } from 'sendim';
-import * as SendInBlue from 'sib-api-v3-typescript';
+import * as Brevo from 'sib-api-v3-typescript';
 import { AccountApiApiKeys } from 'sib-api-v3-typescript/api/accountApi';
 import { TransactionalEmailsApiApiKeys } from 'sib-api-v3-typescript/api/transactionalEmailsApi';
 
-export interface SendimSendinblueProviderConfig {
+export interface SendimBrevoProviderConfig {
   apiKey: string;
 }
-export class SendimSendinblueProvider implements SendimTransportInterface {
-  private accountApi: SendInBlue.AccountApi;
-  private smtpTransactionalApi: SendInBlue.TransactionalEmailsApi;
+export class SendimBrevoProvider implements SendimTransportInterface {
+  private accountApi: Brevo.AccountApi;
+  private smtpTransactionalApi: Brevo.TransactionalEmailsApi;
 
-  providerName = 'sendinblue';
+  providerName = 'brevo';
 
-  constructor(public config: SendimSendinblueProviderConfig) {
-    this.accountApi = new SendInBlue.AccountApi();
-    this.smtpTransactionalApi = new SendInBlue.TransactionalEmailsApi();
+  constructor(public config: SendimBrevoProviderConfig) {
+    this.accountApi = new Brevo.AccountApi();
+    this.smtpTransactionalApi = new Brevo.TransactionalEmailsApi();
 
     this.accountApi.setApiKey(AccountApiApiKeys.apiKey, config.apiKey);
     this.smtpTransactionalApi.setApiKey(

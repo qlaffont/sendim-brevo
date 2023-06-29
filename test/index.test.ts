@@ -25,12 +25,9 @@ jest.mock('sib-api-v3-typescript', () => {
   };
 });
 
-import {
-  SendimSendinblueProvider,
-  SendimSendinblueProviderConfig,
-} from '../src';
+import { SendimBrevoProvider, SendimBrevoProviderConfig } from '../src';
 
-describe('Sendim SendInBlue', () => {
+describe('Sendim Brevo', () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
@@ -48,8 +45,8 @@ describe('Sendim SendInBlue', () => {
 
     try {
       process.env.FAILED = 'true';
-      await sendim.addTransport<SendimSendinblueProviderConfig>(
-        SendimSendinblueProvider,
+      await sendim.addTransport<SendimBrevoProviderConfig>(
+        SendimBrevoProvider,
         { apiKey: '' },
       );
     } catch (error) {
@@ -59,10 +56,9 @@ describe('Sendim SendInBlue', () => {
     }
 
     process.env.FAILED = 'false';
-    await sendim.addTransport<SendimSendinblueProviderConfig>(
-      SendimSendinblueProvider,
-      { apiKey: process.env.SENDINBLUE_APIKEY! },
-    );
+    await sendim.addTransport<SendimBrevoProviderConfig>(SendimBrevoProvider, {
+      apiKey: process.env.BREVO_APIKEY!,
+    });
     // eslint-disable-next-line no-empty
 
     expect(sendim).toBeDefined();
@@ -73,10 +69,9 @@ describe('Sendim SendInBlue', () => {
   it('should be able to send raw email', async () => {
     const sendim = new Sendim('debug');
 
-    await sendim.addTransport<SendimSendinblueProviderConfig>(
-      SendimSendinblueProvider,
-      { apiKey: process.env.SENDINBLUE_APIKEY! },
-    );
+    await sendim.addTransport<SendimBrevoProviderConfig>(SendimBrevoProvider, {
+      apiKey: process.env.BREVO_APIKEY!,
+    });
 
     await sendim.sendRawMail({
       textContent: 'test',
@@ -111,10 +106,9 @@ describe('Sendim SendInBlue', () => {
   it('should be able to send transactional email', async () => {
     const sendim = new Sendim('debug');
 
-    await sendim.addTransport<SendimSendinblueProviderConfig>(
-      SendimSendinblueProvider,
-      { apiKey: process.env.SENDINBLUE_APIKEY! },
-    );
+    await sendim.addTransport<SendimBrevoProviderConfig>(SendimBrevoProvider, {
+      apiKey: process.env.BREVO_APIKEY!,
+    });
 
     await sendim.sendTransactionalMail({
       templateId: '6',
