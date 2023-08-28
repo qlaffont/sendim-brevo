@@ -1,8 +1,8 @@
-[![Test Coverage](https://api.codeclimate.com/v1/badges/1cba2b8c3c1a4b96782c/test_coverage)](https://codeclimate.com/github/flexper/sendim-brevo/test_coverage) [![Maintainability](https://api.codeclimate.com/v1/badges/1cba2b8c3c1a4b96782c/maintainability)](https://codeclimate.com/github/flexper/sendim-brevo/maintainability) ![npm](https://img.shields.io/npm/v/sendim-brevo) ![npm](https://img.shields.io/npm/dm/sendim-brevo) ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/sendim-brevo) ![NPM](https://img.shields.io/npm/l/sendim-brevo)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/1cba2b8c3c1a4b96782c/test_coverage)](https://codeclimate.com/github/qlaffont/sendim-brevo/test_coverage) [![Maintainability](https://api.codeclimate.com/v1/badges/1cba2b8c3c1a4b96782c/maintainability)](https://codeclimate.com/github/qlaffont/sendim-brevo/maintainability) ![npm](https://img.shields.io/npm/v/sendim-brevo) ![npm](https://img.shields.io/npm/dm/sendim-brevo) ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/sendim-brevo) ![NPM](https://img.shields.io/npm/l/sendim-brevo)
 
 # sendim-brevo
 
-A simple library to send email with Sendim for Brevo.
+A simple library to send email with Sendim for Brevo. Old Owner: [@flexper](https://github.com/flexper)
 
 ## Usage
 

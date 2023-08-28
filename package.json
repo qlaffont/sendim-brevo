@@ -29,15 +29,15 @@
     "access": "public"
   },
   "name": "sendim-brevo",
-  "author": "flexper",
+  "author": "qlaffont",
   "module": "dist/sendim-brevo.esm.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/flexper/sendim-brevo.git"
+    "url": "https://github.com/qlaffont/sendim-brevo.git"
   },
   "bugs": {
-    "url": "https://github.com/flexper/sendim-brevo/issues",
-    "email": "contact@flexper.fr"
+    "url": "https://github.com/qlaffont/sendim-brevo/issues",
+    "email": "contact@qlaffont.com"
   },
   "size-limit": [
     {
