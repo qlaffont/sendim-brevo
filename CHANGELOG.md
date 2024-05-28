@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.2.130 (2024-05-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency sendim to v1.2.123 ([c7103d7](https://github.com/qlaffont/sendim-brevo/commit/c7103d70c2c4a9beae41bdf1c50b9c518167550c))
+
 ### 1.2.129 (2024-05-28)
 
 ### 1.2.128 (2024-05-28)
