@@ -10,7 +10,7 @@ importers:
     dependencies:
       sendim:
         specifier: ^1.2.0
-        version: 1.2.164
+        version: 1.2.166
       sib-api-v3-typescript:
         specifier: ^2.2.2
         version: 2.2.2
@@ -4805,8 +4805,8 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
-  sendim@1.2.164:
-    resolution: {integrity: sha512-qIgO3Iv9IiHDCcV1y8PtXGW/oIPgUukDxEw2UsbsZLddXJXdoDmUAkfdxPJKADQjxAWliFYauElO/MPZKZQo6A==}
+  sendim@1.2.166:
+    resolution: {integrity: sha512-vLiY9DmwFfNZKMncZ/FBeo1C05yxNoWSCXF88zGa9uwNFOn1hDkuZxkxNfgwHqNPx4MomYxfIdjAiriZI1UVJQ==}
     engines: {node: '>=10'}
 
   serialize-javascript@4.0.0:
@@ -11695,7 +11695,7 @@ snapshots:
 
   semver@7.6.3: {}
 
-  sendim@1.2.164:
+  sendim@1.2.166:
     dependencies:
       pino: 9.4.0
 
