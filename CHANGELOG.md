@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.2.256 (2024-11-15)
+
 ### 1.2.255 (2024-11-15)
 
 
